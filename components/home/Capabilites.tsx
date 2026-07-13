@@ -7,6 +7,7 @@ import { siteConfig } from "@/data/siteConfig";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Container from "@/components/ui/Container";  
 import { cardVariants, cardContentVariants, tagContainerVariants, tagPopVariants } from "@/lib/animations";
+import { ReactNode } from "react";
 
 const descriptions: Record<string, string> = {
   "Frontend Architecture": "Structuring scalable, component-driven interfaces from scratch.",
@@ -15,7 +16,8 @@ const descriptions: Record<string, string> = {
   "Professional Skills": "Applying discipline and effective communication to workflows.",
 };
 
-const icons: Record<string, JSX.Element> = {
+
+const icons: Record<string, ReactNode> = {
   "Frontend Architecture": <Code2 size={24} />,
   "State & Logic": <Cpu size={24} />,
   "Tools & Ecosystem": <Wrench size={24} />,

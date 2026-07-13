@@ -59,12 +59,12 @@ export default function About() {
                 className="flex flex-wrap gap-2 mt-auto pt-6"
               >
                 <motion.div variants={tagPopVariants}>
-                  <Tag variant="" className="text-xs border-zinc-600 text-zinc-200 flex items-center gap-1">
+                  <Tag variant="light" className="text-xs border-zinc-600 text-zinc-200 flex items-center gap-1">
                     <MapPin size={12} /> Lahore, PK
                   </Tag>
                 </motion.div>
                 <motion.div variants={tagPopVariants}>
-                  <Tag className="text-xs text-emerald-400 border-emerald-500/30 bg-emerald-500/10">
+                  <Tag variant="light" className="text-xs text-emerald-400 border-emerald-500/30 bg-emerald-500/10">
                     Open to work
                   </Tag>
                 </motion.div>

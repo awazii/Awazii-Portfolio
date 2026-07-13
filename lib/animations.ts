@@ -46,8 +46,12 @@ export const scrollRevealVariants: Variants = {
 // 5. Premium Infinite Floating + Pulsing Border for Project Logo
 export const logoFloatVariants: Variants = {
   animate: {
-    y: [0, -6, 0], // Smooth up and down motion
-    borderColor: ["rgba(228, 228, 231, 0.8)", "rgba(99, 102, 241, 0.6)", "rgba(228, 228, 231, 0.8)"], // Pulse border to purple
+    y: [0, -6, 0],
+    borderColor: [
+      "rgba(228, 228, 231, 0.8)",
+      "rgba(99, 102, 241, 0.6)",
+      "rgba(228, 228, 231, 0.8)"
+    ],
     boxShadow: [
       "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)",
       "0 10px 15px -3px rgba(99, 102, 241, 0.15), 0 4px 6px -2px rgba(99, 102, 241, 0.1)",
@@ -60,19 +64,21 @@ export const logoFloatVariants: Variants = {
     }
   }
 };
-export const tagContainerVariants = {
+
+// ✅ Add Variants typing everywhere
+export const tagContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.2, // wait for parent to appear
-      staggerChildren: 0.12, // each tag comes right after the other
+      delayChildren: 0.2,
+      staggerChildren: 0.12,
     },
   },
 };
 
-export const tagPopVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.9 }, // start lower + slightly smaller
+export const tagPopVariants: Variants = {
+  hidden: { opacity: 0, y: 20, scale: 0.9 },
   visible: {
     opacity: 1,
     y: 0,
@@ -84,7 +90,8 @@ export const tagPopVariants = {
     },
   },
 };
-export const cardVariants = {
+
+export const cardVariants: Variants = {
   hidden: { opacity: 0, scale: 0.95 },
   visible: {
     opacity: 1,
@@ -96,7 +103,7 @@ export const cardVariants = {
   },
 };
 
-export const cardContentVariants = {
+export const cardContentVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
@@ -104,7 +111,8 @@ export const cardContentVariants = {
     transition: { duration: 0.45, ease: "easeOut" },
   },
 };
-export const sectionFadeVariants = {
+
+export const sectionFadeVariants: Variants = {
   hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
@@ -112,19 +120,21 @@ export const sectionFadeVariants = {
     transition: { duration: 0.4, ease: "easeOut" },
   },
 };
-export const slideVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 100 : -100,
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -100 : 100,
-      opacity: 0,
-      transition: { duration: 0.4, ease: "easeIn" },
-    }),
-  };
+
+// Special case: dynamic variants with functions
+export const slideVariants: Variants = {
+  enter: (dir: number) => ({
+    x: dir > 0 ? 100 : -100,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+  exit: (dir: number) => ({
+    x: dir > 0 ? -100 : 100,
+    opacity: 0,
+    transition: { duration: 0.4, ease: "easeIn" },
+  }),
+};
