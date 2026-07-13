@@ -10,7 +10,7 @@ import FAQ from "@/components/home/FAQ";
 export default function Home() {
   return (
     <>
-      <Navbar />   
+      <Navbar />
       <main className="w-full relative z-10">
         <Hero />
         <section className="bg-[#fafafa] text-zinc-900 relative z-20 rounded-t-[32px] shadow-[0_-20px_40px_rgba(0,0,0,0.3)]">
