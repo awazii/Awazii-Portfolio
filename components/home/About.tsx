@@ -125,13 +125,6 @@ export default function About() {
               className="md:col-span-2 bg-zinc-800 border border-zinc-700 p-6 lg:p-8 rounded-3xl flex flex-col gap-4 hover:border-zinc-600 transition-colors"
             >
               <motion.span variants={cardContentVariants} className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Engineering Mindset</motion.span>
-              <motion.span
-  variants={cardContentVariants}
-  className="text-[10px] font-black text-zinc-400 uppercase tracking-widest"
->
-  Engineering Mindset
-</motion.span>
-
 <motion.div
   variants={cardContentVariants}
   className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4"
@@ -170,7 +163,7 @@ export default function About() {
       </h4>
 
       <p className="text-zinc-200 text-sm mt-1 leading-relaxed">
-        I continuously expand my skills by building real-world applications and exploring modern frontend and backend technologies, always striving to become a better engineer with every project.
+       I continuously refine my frontend expertise by building real-world applications that emphasize scalability, maintainability, and clean architecture. Every project is an opportunity to become a better engineer.
       </p>
 
     </div>

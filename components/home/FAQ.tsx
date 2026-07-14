@@ -1,5 +1,4 @@
 "use client";
-// components/home/FAQ.tsx
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -9,30 +8,29 @@ import { cardVariants, cardContentVariants } from "@/lib/animations";
 const faqs = [
   {
     icon: <Target size={24} className="text-indigo-400" />,
-    question: "What type of roles are you currently seeking?",
+    question: "What type of opportunities are you looking for?",
     answer:
-      "I am actively prioritizing local, on-site junior frontend developer positions in Lahore. My goal is to integrate with an established engineering team and contribute directly to production environments.",
+      "I'm seeking junior frontend developer opportunities where I can contribute to real-world products, collaborate with experienced engineers, and continue growing through hands-on development. I'm open to both on-site and remote roles.",
   },
   {
     icon: <Layout size={24} className="text-indigo-400" />,
-    question: "Is your primary focus strictly on frontend development?",
+    question: "What is your primary technical focus?",
     answer:
-      "My core expertise is heavy frontend architecture—building applications that manage complex logic and state on the client-side (like Splitly). However, I am continuously expanding my capabilities into the full-stack MERN ecosystem.",
+      "My primary focus is frontend engineering with React and Next.js. I enjoy designing scalable application architecture, managing complex state, and building maintainable user interfaces that remain reliable as projects grow.",
   },
   {
     icon: <Terminal size={24} className="text-indigo-400" />,
-    question: "Why do you prefer custom architecture over low-code solutions?",
+    question: "What is your development philosophy?",
     answer:
-      "I believe in absolute control over performance and scalability. I strictly prefer hard-coding application logic, component structures, and state architectures from scratch rather than fighting the inevitable limitations of automated wrappers.",
+      "I enjoy building applications from the ground up, focusing on clean architecture, reusable components, and predictable state management. I believe writing maintainable code today creates scalable software tomorrow.",
   },
   {
     icon: <Mountain size={24} className="text-indigo-400" />,
-    question: "How do your off-screen pursuits influence your work?",
+    question: "What motivates you outside of development?",
     answer:
-      "I apply the exact same progressive overload principles from my bodybuilding and high-altitude trekking routines to my development workflow: consistency, calculated iteration, and continuous improvement.",
+      "Strength training has taught me discipline, consistency, and continuous improvement. I bring the same mindset into software development by approaching every project as an opportunity to learn, refine my skills, and solve increasingly complex problems.",
   },
 ];
-
 export default function FAQ() {
   return (
     <section id="faq" className="w-full">

@@ -1,5 +1,4 @@
 "use client";
-// components/home/ContactCTA.tsx
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
@@ -10,8 +9,6 @@ export default function ContactCTA() {
   return (
     <section id="contact" className="w-full bg-[#0c0c0e] border-t border-zinc-800">
       <Container className="flex flex-col items-center text-center">
-        
-        {/* Heading */}
         <motion.h2
           variants={cardVariants}
           initial="hidden"
@@ -21,8 +18,6 @@ export default function ContactCTA() {
         >
           Let&apos;s build something <span className="text-indigo-500">dependable.</span>
         </motion.h2>
-
-        {/* Subtext */}
         <motion.p
           variants={cardContentVariants}
           initial="hidden"
@@ -33,8 +28,6 @@ export default function ContactCTA() {
           I am currently open for freelance opportunities and full-time frontend roles. 
           Whether you need a complex logic architecture or a pristine UI, let&apos;s talk.
         </motion.p>
-
-        {/* Buttons */}
         <motion.div
           variants={cardContentVariants}
           initial="hidden"

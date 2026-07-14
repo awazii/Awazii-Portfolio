@@ -1,5 +1,4 @@
 "use client";
-// components/home/Capabilities.tsx
 import { motion } from "framer-motion";
 import { Code2, Cpu, Wrench, Briefcase, BookOpen } from "lucide-react";
 import { skillsData } from "@/data/portfolioData";
@@ -41,8 +40,6 @@ export default function Capabilities() {
             className="mb-12 text-center"
           />
         </motion.div>
-
-        {/* Skills Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {skillsData.map((group) => (
             <motion.div
@@ -78,8 +75,6 @@ export default function Capabilities() {
             </motion.div>
           ))}
         </div>
-
-        {/* Active Learning */}
         <motion.div
           variants={cardVariants}
           initial="hidden"

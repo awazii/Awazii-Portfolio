@@ -1,5 +1,4 @@
 "use client";
-// components/home/Offerings.tsx
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -9,21 +8,21 @@ import { cardVariants, cardContentVariants } from "@/lib/animations";
 const offerings = [
   {
     icon: <Cpu size={24} className="text-indigo-400" />,
-    title: "State & Logic Engineering",
+    title: "Frontend Architecture",
     description:
-      "Designing normalized state architectures using Redux Toolkit to handle complex relational data, live calculations, and multi-tier UI synchronizations strictly on the client side.",
+      "Designing scalable frontend architectures with Redux Toolkit, focusing on predictable state management, reusable components, and complex client-side application logic.",
   },
   {
     icon: <Code2 size={24} className="text-indigo-400" />,
-    title: "Custom Architecture",
+    title: "Problem Solving",
     description:
-      "Building scalable web applications entirely from scratch. I prefer engineering raw, hard-coded logic over relying on zero-code wrappers or automated visual builders.",
+      "Building applications from the ground up by solving real engineering challenges through clean architecture, maintainable code, and scalable frontend solutions.",
   },
   {
     icon: <LayoutTemplate size={24} className="text-indigo-400" />,
-    title: "High-Fidelity Interfaces",
+    title: "Modern User Interfaces",
     description:
-      "Translating static designs into fully typed, responsive React components using Tailwind CSS, ensuring smooth asset layering and absolute structural accuracy.",
+      "Developing responsive, accessible, and high-performance interfaces with React, Next.js, and Tailwind CSS, combining polished design with a strong engineering foundation.",
   },
 ];
 

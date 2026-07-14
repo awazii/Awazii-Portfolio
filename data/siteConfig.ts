@@ -13,10 +13,10 @@ export const siteConfig: SiteConfig = {
     github: "https://github.com/awazii",
     linkedin: "https://www.linkedin.com/in/awais-tariq-75636a253/",
     education: "B.S. Software Engineering, Virtual University of Pakistan",
-    currentlyLearning: [
-        "Next.js",
-        "TypeScript",
-        "Backend Development (MERN)",
-        "REST API Design",
-    ]
+  currentlyLearning: [
+  "Backend Development",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+]
 };
