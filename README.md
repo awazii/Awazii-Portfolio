@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="https://img.shields.io/badge/NEXT.JS-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TYPESCRIPT-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/TAILWIND-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
+  <img src="https://img.shields.io/badge/FRAMER_MOTION-0055FF?style=for-the-badge&logo=framer&logoColor=white" alt="Framer Motion" />
+  
+  <br/>
+  <br/>
 
-## Getting Started
+  <h1>🚀 Awazii.dev | Engineering Portfolio</h1>
+  <p><b>A highly optimized, statically generated developer portfolio built with Next.js 15 and strict TypeScript.</b></p>
+  
+  <a href="https://awazii.vercel.app/"><strong>🛑 View Live Site</strong></a>
+</div>
 
-First, run the development server:
+<br/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> This repository houses my personal engineering portfolio. It was designed to be a technical showcase of modern frontend architecture, featuring dynamic routing, reusable type-safe components, and complex page transitions.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📸 Interface Preview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*(Pro-tip: Delete this text and drag-and-drop a screenshot of your dark-themed Hero section here!)*
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧠 Architectural Highlights
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This portfolio isn't just a static template; it's a scalable web application built with a modular component architecture.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 1. Dynamic Project Routing (`app/projects/[slug]`)
+Utilized Next.js App Router and dynamic route parameters to map over local datasets (`portfolioData.ts`). This allows new case studies to be injected programmatically, generating static HTML at build time for instantaneous page loads.
 
-## Deploy on Vercel
+### 2. Extensible UI Component Library
+Engineered a custom, reusable UI component library (e.g., `<Button />`, `<ProjectNavigation />`, `<FixedNav />`) using a spread-attribute architecture (`...props`) combined with `React.AnchorHTMLAttributes`. This ensures all components are fully accessible, type-safe, and future-proof without prop-drilling.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 3. Motion & Interaction State
+Integrated Framer Motion to handle complex entrance animations, scroll-triggered layout reveals, and continuous looping animations. The animation logic is decoupled from the UI markup to maintain clean, readable components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 4. The "Deep Zinc" Design System
+Implemented a custom design token system using Tailwind CSS, focusing on deep dark-mode aesthetics (`zinc-900`), fluid typography, and glass-morphism effects (`backdrop-blur`).
+
+---
