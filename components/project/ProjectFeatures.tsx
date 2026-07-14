@@ -21,8 +21,7 @@ export default function ProjectFeatures({ project }: ProjectFeaturesProps) {
   return (
     <section className="w-full bg-[#fafafa]">
       <Container className="py-0 md:py-0">
-        
-        {/* Dark Feature Container */}
+
         <motion.div
           variants={sectionFadeVariants}
           initial="hidden"

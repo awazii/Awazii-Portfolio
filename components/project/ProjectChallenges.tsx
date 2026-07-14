@@ -1,5 +1,4 @@
 "use client";
-// components/projects/ProjectChallenges.tsx
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import { ProjectItem } from "@/data/portfolioData";
@@ -17,8 +16,6 @@ export default function ProjectChallenges({ project }: ProjectChallengesProps) {
   return (
     <section className="w-full">
       <Container className="py-0 md:py-0">
-        
-        {/* Heading */}
         <motion.h2
           variants={sectionFadeVariants}
           initial="hidden"
@@ -29,8 +26,6 @@ export default function ProjectChallenges({ project }: ProjectChallengesProps) {
           <ChevronRight size={18} className="text-indigo-500" />
           Technical Challenges
         </motion.h2>
-        
-        {/* Challenges Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {project.challenges.map((item, index) => (
             <motion.div
@@ -39,13 +34,12 @@ export default function ProjectChallenges({ project }: ProjectChallengesProps) {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.1 }} // optional cascade
+              transition={{ delay: index * 0.1 }} 
               className={cn(
                 "bg-zinc-800 p-8 rounded-3xl border border-zinc-700 flex flex-col gap-6",
                 "hover:border-zinc-600 transition-all duration-300"
               )}
             >
-              {/* Problem */}
               <motion.div variants={cardContentVariants} className="flex flex-col gap-2">
                 <h4 className="text-[10px] font-black uppercase tracking-widest text-indigo-400 flex items-center gap-2">
                   <AlertTriangle size={14} /> Problem
@@ -54,8 +48,6 @@ export default function ProjectChallenges({ project }: ProjectChallengesProps) {
                   {item.problem}
                 </p>
               </motion.div>
-              
-              {/* Solution */}
               <motion.div
                 variants={cardContentVariants}
                 className="flex flex-col gap-2 pt-6 border-t border-zinc-700/50"

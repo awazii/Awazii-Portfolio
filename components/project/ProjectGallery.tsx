@@ -1,5 +1,4 @@
 "use client";
-// components/projects/ProjectGallery.tsx
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/ui/Container";
@@ -29,7 +28,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
   return (
     <section id="gallery" className="w-full">
       <Container className="py-0 md:py-0">
-        {/* Header */}
+
         <motion.div
           variants={sectionFadeVariants}
           initial="hidden"
@@ -45,7 +44,6 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
           </span>
         </motion.div>
         
-        {/* Slider */}
         <motion.div
           variants={cardContentVariants}
           initial="hidden"
@@ -67,7 +65,6 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
             />
           </AnimatePresence>
 
-          {/* Controls */}
           <button
             onClick={prev}
             className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors"

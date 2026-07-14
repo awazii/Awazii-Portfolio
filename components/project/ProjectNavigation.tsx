@@ -19,7 +19,6 @@ export default function ProjectNavigation({ currentProjectId }: ProjectNavigatio
     <section className="w-full bg-[#0c0c0e] py-32 mt-20 border-t border-zinc-800">
       <Container className="flex flex-col items-center text-center gap-6 py-0 md:py-0">
         
-        {/* Heading */}
         <motion.span
           variants={sectionFadeVariants}
           initial="hidden"
@@ -29,8 +28,7 @@ export default function ProjectNavigation({ currentProjectId }: ProjectNavigatio
         >
           Next Case Study
         </motion.span>
-        
-        {/* Next Project Link */}
+
         <motion.div
           variants={cardContentVariants}
           initial="hidden"

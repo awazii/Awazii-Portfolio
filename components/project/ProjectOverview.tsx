@@ -16,10 +16,8 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
       <Container className="py-0 md:py-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-          {/* Left Column */}
           <div className="lg:col-span-8 flex flex-col gap-12">
 
-            {/* Overview */}
             <motion.div
               variants={sectionFadeVariants}
               initial="hidden"
@@ -35,7 +33,6 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
               </p>
             </motion.div>
 
-            {/* Logic Architecture */}
             <motion.div
               variants={cardContentVariants}
               initial="hidden"
@@ -58,7 +55,6 @@ export default function ProjectOverview({ project }: ProjectOverviewProps) {
 
           </div>
 
-          {/* Right Column */}
           <motion.div
             variants={cardContentVariants}
             initial="hidden"

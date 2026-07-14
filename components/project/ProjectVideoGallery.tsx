@@ -10,13 +10,11 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  // Custom Player State
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
 
-  // Reset player state when changing videos
   useEffect(() => {
     setIsPlaying(false);
     setProgress(0);
@@ -34,9 +32,8 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
     setIndex((i) => (i - 1 + videos.length) % videos.length);
   };
 
-  // Media Player Handlers
   const togglePlay = (e?: React.MouseEvent) => {
-    e?.stopPropagation(); // Prevent slider clicks if we click the button directly
+    e?.stopPropagation(); 
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
@@ -76,7 +73,6 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
   return (
     <section className="w-full">
       <Container>
-        {/* Header */}
         <motion.div
           variants={sectionFadeVariants}
           initial="hidden"
@@ -92,7 +88,6 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
           </span>
         </motion.div>
 
-        {/* Video Slider */}
         <motion.div
           variants={cardContentVariants}
           initial="hidden"
@@ -118,7 +113,6 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
             </motion.video>
           </AnimatePresence>
 
-          {/* Big Center Play Button (Visible only when paused) */}
           {!isPlaying && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
               <div className="bg-black/50 text-white p-4 rounded-full backdrop-blur-sm border border-white/10">
@@ -127,10 +121,8 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
             </div>
           )}
 
-          {/* Custom Controls Overlay */}
           <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex flex-col gap-3">
             
-            {/* Progress Bar */}
             <input
               type="range"
               min="0"
@@ -139,8 +131,7 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
               onChange={handleSeek}
               className="w-full h-1.5 bg-zinc-600 rounded-lg appearance-none cursor-pointer accent-indigo-500"
             />
-            
-            {/* Control Buttons */}
+   
             <div className="flex items-center justify-between mt-1">
               <div className="flex items-center gap-5">
                 <button onClick={togglePlay} className="text-white hover:text-indigo-400 transition-colors">
@@ -153,7 +144,6 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
             </div>
           </div>
 
-          {/* Navigation Controls (Slider Arrows) */}
           <button 
             onClick={(e) => { e.stopPropagation(); prev(); }} 
             className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-0 group-hover:opacity-100 backdrop-blur-sm border border-white/10"

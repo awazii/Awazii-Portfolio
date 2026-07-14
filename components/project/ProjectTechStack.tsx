@@ -1,5 +1,4 @@
 "use client";
-// components/projects/ProjectTechStack.tsx
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import { ProjectItem } from "@/data/portfolioData";
@@ -15,7 +14,6 @@ export default function ProjectTechStack({ project }: ProjectTechStackProps) {
     <section className="w-full bg-[#fafafa]">
       <Container className="py-0 md:py-0">
         
-        {/* Tech Stack Container */}
         <motion.div
           variants={sectionFadeVariants}
           initial="hidden"

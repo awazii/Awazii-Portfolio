@@ -165,7 +165,7 @@ export const portfolioData: ProjectItem[] = [
             responsiveness: "Fully Responsive"
         },
         githubUrl: "https://github.com/awazii/Amazon",
-        demoUrl: "https://amazon-awais.netlify.app/",
+        demoUrl: "#",
         challenges: [
             {
                 problem:

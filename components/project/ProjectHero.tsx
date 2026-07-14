@@ -1,5 +1,4 @@
 "use client";
-// components/projects/ProjectHero.tsx
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import { ProjectItem } from "@/data/portfolioData";
@@ -17,7 +16,6 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
     <section className="w-full bg-[#fafafa]">
       <Container className="flex flex-col gap-8 py-0 md:py-0">
 
-        {/* Breadcrumb Navigation */}
         <motion.div
           variants={sectionFadeVariants}
           initial="hidden"
@@ -34,8 +32,6 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
           <span className="text-zinc-300">/</span>
           <span className="text-indigo-600">{project.title}</span>
         </motion.div>
-
-        {/* Title, Logo & Pitch */}
         <motion.div
           variants={cardContentVariants}
           initial="hidden"
@@ -44,7 +40,6 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
           className="flex flex-col gap-6 max-w-4xl"
         >
           <div className="flex flex-col md:flex-row md:items-center gap-6">
-            {/* Logo Box */}
             <motion.div
               variants={cardContentVariants}
               className="w-16 h-16 md:w-20 md:h-20 border-zinc-400 border rounded-2xl flex items-center justify-center p-3 shadow-md shadow-zinc-100/50 shrink-0"
@@ -70,8 +65,6 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
           <p className="text-xl md:text-2xl font-medium text-zinc-600 leading-relaxed mt-2">
             {project.pitch}
           </p>
-
-          {/* Metadata Tags */}
           <motion.div
             variants={tagContainerVariants}
             initial="hidden"
@@ -91,7 +84,6 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
           </motion.div>
         </motion.div>
 
-        {/* Action Controls */}
         <motion.div
           variants={cardContentVariants}
           initial="hidden"
@@ -100,7 +92,6 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
           className="flex flex-col sm:flex-row sm:items-center gap-6 mt-6 pt-2 border-t border-zinc-100"
         >
           <div className="flex flex-wrap items-center gap-4">
-            {/* Live Demo */}
             {project.demoUrl && project.demoUrl !== "#" ? (
               <a
                 href={project.demoUrl}
@@ -127,7 +118,6 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
               </span>
             )}
 
-            {/* Source Code */}
             {project.githubUrl && project.githubUrl !== "#" && (
               <a
                 href={project.githubUrl}
@@ -144,7 +134,6 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
             )}
           </div>
 
-          {/* Gallery Link */}
           <button
             onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })}
             className="group flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-indigo-600 self-start sm:self-center transition-colors py-2"
