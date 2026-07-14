@@ -20,8 +20,8 @@
 ---
 
 ## 📸 Interface Preview
+<img width="1909" height="910" alt="image" src="https://github.com/user-attachments/assets/6a579a0d-e3cc-496b-8011-1a57ceefa806" />
 
-*(Pro-tip: Delete this text and drag-and-drop a screenshot of your dark-themed Hero section here!)*
 
 ---
 
