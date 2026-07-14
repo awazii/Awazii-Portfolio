@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Tag from "@/components/ui/Tag";
-import { MapPin, Dumbbell, Headphones } from "lucide-react";
 import { skillsData } from "@/data/portfolioData";
+import { MapPin, Dumbbell, Code2, Rocket } from "lucide-react";
 import { 
   staggerItemVariants, 
   tagContainerVariants, 
@@ -19,7 +19,6 @@ export default function About() {
       <Container>
         <div className="flex flex-col">
           
-          {/* Animated Heading */}
           <motion.div 
             variants={staggerItemVariants}
             initial="hidden"
@@ -35,8 +34,6 @@ export default function About() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-
-            {/* Box 1: Profile */}
             <motion.div 
               variants={cardVariants}
               initial="hidden"
@@ -50,10 +47,8 @@ export default function About() {
                 <p className="text-zinc-200 font-medium mt-1">Frontend Developer</p>
               </motion.div>
               <motion.p variants={cardContentVariants} className="text-sm text-zinc-300 leading-relaxed mt-2">
-                Building scalable, logic-driven UI components and relational user experiences.
+                 Frontend developer passionate about building scalable, performant, and intuitive web applications with a strong focus on clean architecture and exceptional user experience.
               </motion.p>
-              
-              {/* Tags */}
               <motion.div 
                 variants={tagContainerVariants}
                 className="flex flex-wrap gap-2 mt-auto pt-6"
@@ -70,8 +65,6 @@ export default function About() {
                 </motion.div>
               </motion.div>
             </motion.div>
-
-            {/* Box 2: Technical Focus */}
             <motion.div 
               variants={cardVariants}
               initial="hidden"
@@ -81,7 +74,7 @@ export default function About() {
             >
               <motion.span variants={cardContentVariants} className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Technical Focus</motion.span>
               <motion.p variants={cardContentVariants} className="text-zinc-200 leading-relaxed text-sm lg:text-base font-medium">
-                I approach frontend development as a logic puzzle first and a visual canvas second. Operating with a focus on robust architectures, my code is designed to handle complex client-side calculations seamlessly. Every component is built to be iterative, scalable, and strictly typed without relying heavily on the backend for heavy lifting.
+                 I believe exceptional frontend development goes beyond beautiful interfaces. My focus is on building scalable architectures, reusable components, and predictable state management that keep applications fast, maintainable, and enjoyable to use. Every project is an opportunity to solve complex problems through thoughtful engineering and clean design.
               </motion.p>
               <motion.div 
                 variants={tagContainerVariants}
@@ -97,7 +90,6 @@ export default function About() {
               </motion.div>
             </motion.div>
 
-            {/* Box 3: Education & Experience */}
             <motion.div 
               variants={cardVariants}
               initial="hidden"
@@ -119,13 +111,12 @@ export default function About() {
                   <h4 className="text-white font-bold text-sm">Frontend Developer</h4>
                   <p className="text-zinc-200 text-xs mt-1">Independent / Project-Based</p>
                   <span className="inline-block mt-2 px-2 py-1 border border-zinc-700 text-zinc-200 text-[10px] uppercase font-bold rounded">
-                    2 Years Experience
+                    2+ Years Building Projects
                   </span>
                 </div>
               </motion.div>
             </motion.div>
 
-            {/* Box 4: Beyond The Code */}
             <motion.div 
               variants={cardVariants}
               initial="hidden"
@@ -133,31 +124,60 @@ export default function About() {
               viewport={{ once: true, amount: 0.2 }}
               className="md:col-span-2 bg-zinc-800 border border-zinc-700 p-6 lg:p-8 rounded-3xl flex flex-col gap-4 hover:border-zinc-600 transition-colors"
             >
-              <motion.span variants={cardContentVariants} className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Beyond The Code</motion.span>
-              <motion.div variants={cardContentVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4">
-                <div className="flex flex-col gap-3">
-                  <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
-                    <Dumbbell className="text-indigo-400" size={18} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm">Iron & Discipline</h4>
-                    <p className="text-zinc-200 text-sm mt-1 leading-relaxed">
-                      With over two years of consistent bodybuilding, I apply the same principles of progressive overload and discipline to my engineering workflows.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
-                    <Headphones className="text-indigo-400" size={18} />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm">Media & Hardware</h4>
-                    <p className="text-zinc-200 text-sm mt-1 leading-relaxed">
-                      An advocate for high-fidelity stereo sound and mechanical peripherals. Off the clock, you can find me analyzing animation shifts in series like Bleach and Demon Slayer.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+              <motion.span variants={cardContentVariants} className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">Engineering Mindset</motion.span>
+              <motion.span
+  variants={cardContentVariants}
+  className="text-[10px] font-black text-zinc-400 uppercase tracking-widest"
+>
+  Engineering Mindset
+</motion.span>
+
+<motion.div
+  variants={cardContentVariants}
+  className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-4"
+>
+
+  <div className="flex flex-col gap-3">
+
+    <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+      <Code2 className="text-indigo-400" size={18}/>
+    </div>
+
+    <div>
+
+      <h4 className="text-white font-bold text-sm">
+        Problem Solving
+      </h4>
+
+      <p className="text-zinc-200 text-sm mt-1 leading-relaxed">
+        I enjoy transforming complex frontend challenges into scalable, maintainable solutions. From state management to UI architecture, I focus on writing clean code that remains reliable as projects grow.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div className="flex flex-col gap-3">
+
+    <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
+      <Rocket className="text-indigo-400" size={18}/>
+    </div>
+
+    <div>
+
+      <h4 className="text-white font-bold text-sm">
+        Continuous Growth
+      </h4>
+
+      <p className="text-zinc-200 text-sm mt-1 leading-relaxed">
+        I continuously expand my skills by building real-world applications and exploring modern frontend and backend technologies, always striving to become a better engineer with every project.
+      </p>
+
+    </div>
+
+  </div>
+
+</motion.div>
             </motion.div>
 
           </div>
