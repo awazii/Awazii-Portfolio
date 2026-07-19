@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/ui/Container";
 import { ProjectItem } from "@/data/portfolioData";
-import { Maximize2, ChevronLeft, ChevronRight, Maximize, Minimize } from "lucide-react"; // 🚀 Added Maximize/Minimize
+import { Maximize2, ChevronLeft, ChevronRight, Maximize, Minimize } from "lucide-react"; 
 import { slideVariants, sectionFadeVariants, cardContentVariants } from "@/lib/animations";
 
 interface ProjectGalleryProps {
