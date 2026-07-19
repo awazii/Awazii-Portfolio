@@ -2,8 +2,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/ui/Container";
-import { ProjectItem } from "@/data/portfolioData"; // 🚀 Added import
-import { Play, Pause, ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
+import { ProjectItem } from "@/data/portfolioData";
+import { Play, Pause, ChevronLeft, ChevronRight, Volume2, VolumeX, Maximize, Minimize } from "lucide-react"; // 🚀 Added Maximize & Minimize
 import { sectionFadeVariants, cardContentVariants, slideVariants } from "@/lib/animations";
 
 interface ProjectVideoGalleryProps {
@@ -15,9 +15,12 @@ export default function ProjectVideoGallery({ project }: ProjectVideoGalleryProp
   const [direction, setDirection] = useState(0);
 
   const videoRef = useRef<HTMLVideoElement>(null);
+  const playerRef = useRef<HTMLDivElement>(null); 
+  
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false); 
 
   const videos = project.gallery?.videos || [];
 
@@ -25,6 +28,14 @@ export default function ProjectVideoGallery({ project }: ProjectVideoGalleryProp
     setIsPlaying(false);
     setProgress(0);
   }, [index]);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
 
   if (videos.length === 0) return null;
 
@@ -75,6 +86,14 @@ export default function ProjectVideoGallery({ project }: ProjectVideoGalleryProp
       setIsMuted(!isMuted);
     }
   };
+  const toggleFullScreen = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!document.fullscreenElement) {
+      playerRef.current?.requestFullscreen().catch(err => console.error("Fullscreen error:", err));
+    } else {
+      document.exitFullscreen();
+    }
+  };
 
   return (
     <section className="w-full">
@@ -95,6 +114,7 @@ export default function ProjectVideoGallery({ project }: ProjectVideoGalleryProp
         </motion.div>
 
         <motion.div
+          ref={playerRef} 
           variants={cardContentVariants}
           initial="hidden"
           whileInView="visible"
@@ -124,13 +144,13 @@ export default function ProjectVideoGallery({ project }: ProjectVideoGalleryProp
 
           {!isPlaying && (
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-              <div className="bg-black/50 text-white p-4 rounded-full backdrop-blur-sm border border-white/10">
-                <Play size={40} className="ml-1" />
+              <div className="bg-black/50 text-white p-3 md:p-4 rounded-full backdrop-blur-sm border border-white/10">
+                <Play className="w-8 h-8 md:w-10 md:h-10 ml-1" />
               </div>
             </div>
           )}
 
-        <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 z-20 flex flex-col gap-3">
+          <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 z-20 flex flex-col gap-3">
 
             <input
               type="range"
@@ -150,20 +170,25 @@ export default function ProjectVideoGallery({ project }: ProjectVideoGalleryProp
                   {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                 </button>
               </div>
+              
+              <button onClick={toggleFullScreen} className="text-white hover:text-indigo-400 transition-colors">
+                {isFullscreen ? <Minimize size={20} /> : <Maximize size={20} />}
+              </button>
             </div>
           </div>
+          
           {
             videos.length > 1 &&
             <>
               <button
                 onClick={(e) => { e.stopPropagation(); prev(); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-0 group-hover:opacity-100 backdrop-blur-sm border border-white/10"
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-100 md:opacity-0 md:group-hover:opacity-100 backdrop-blur-sm border border-white/10"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
                 onClick={(e) => { e.stopPropagation(); next(); }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-0 group-hover:opacity-100 backdrop-blur-sm border border-white/10"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 md:p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-100 md:opacity-0 md:group-hover:opacity-100 backdrop-blur-sm border border-white/10"
               >
                 <ChevronRight size={20} />
               </button>
