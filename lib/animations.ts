@@ -121,20 +121,25 @@ export const sectionFadeVariants: Variants = {
   },
 };
 
-// Special case: dynamic variants with functions
 export const slideVariants: Variants = {
   enter: (dir: number) => ({
-    x: dir > 0 ? 100 : -100,
-    opacity: 0,
+    x: dir > 0 ? "100%" : "-100%",   
+    opacity: 0,                    
   }),
   center: {
     x: 0,
     opacity: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { 
+      duration: 1.2, 
+      ease: [0.32, 0.72, 0, 1] 
+    },
   },
   exit: (dir: number) => ({
-    x: dir > 0 ? -100 : 100,
+    x: dir > 0 ? "-100%" : "100%", 
     opacity: 0,
-    transition: { duration: 0.4, ease: "easeIn" },
+    transition: { 
+      duration: 1.2, 
+      ease: [0.32, 0.72, 0, 1] 
+    },
   }),
 };

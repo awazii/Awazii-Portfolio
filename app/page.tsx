@@ -7,6 +7,7 @@ import Footer from "@/components/global/Footer";
 import Capabilities from "@/components/home/Capabilites";
 import Offerings from "@/components/home/Offerings";
 import FAQ from "@/components/home/FAQ";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 export default function Home() {
   return (
     <>
@@ -23,9 +24,9 @@ export default function Home() {
         <section className="bg-[#0c0c0e] text-slate-200 relative z-10 rounded-t-[32px]">
           <ContactCTA />
         </section>
-      </main>
-
+      </main>     
       <Footer />
+      <ScrollProgress/>
     </>
   );
 }

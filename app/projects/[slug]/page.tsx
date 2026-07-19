@@ -8,8 +8,10 @@ import ProjectChallenges from "@/components/project/ProjectChallenges";
 import ProjectGallery from "@/components/project/ProjectGallery";
 import ProjectNavigation from "@/components/project/ProjectNavigation";
 import ProjectVideoGallery from "@/components/project/ProjectVideoGallery";
+import ScrollProgress from "@/components/ui/ScrollProgress"; 
 import { ArrowLeft } from "lucide-react";
 import Button from "@/components/ui/Button";
+
 export function generateStaticParams() {
   return portfolioData.map((project) => ({
     slug: project.id,
@@ -37,20 +39,21 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             <ArrowLeft size={16} className="mr-2" /> Home
           </Button>
         </div>
-        {/* The Hero Section */}
         <ProjectHero project={project} />
 
-        {/* The Deep Dive Sections */}
         <ProjectOverview project={project} />
         <ProjectFeatures project={project} />
         <ProjectTechStack project={project} />
         <ProjectChallenges project={project} />
         <ProjectGallery project={project} />
-        {project.gallery && project.gallery.length > 0 && (
-          <ProjectVideoGallery videos={project.gallery} />
+        {project.gallery && project.gallery.videos && project.gallery.videos.length > 0 && (
+          <ProjectVideoGallery project={project} />
         )}
       </article>
+      
       <ProjectNavigation currentProjectId={project.id} />
+      
+      <ScrollProgress /> 
     </main>
   );
 }

@@ -1,12 +1,16 @@
 "use client";
-// components/projects/ProjectVideoGallery.tsx
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Container from "@/components/ui/Container";
+import { ProjectItem } from "@/data/portfolioData"; // 🚀 Added import
 import { Play, Pause, ChevronLeft, ChevronRight, Volume2, VolumeX } from "lucide-react";
 import { sectionFadeVariants, cardContentVariants, slideVariants } from "@/lib/animations";
 
-export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
+interface ProjectVideoGalleryProps {
+  project: ProjectItem;
+}
+
+export default function ProjectVideoGallery({ project }: ProjectVideoGalleryProps) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -15,25 +19,27 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
   const [progress, setProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
 
+  const videos = project.gallery?.videos || [];
+
   useEffect(() => {
     setIsPlaying(false);
     setProgress(0);
   }, [index]);
 
-  if (!videos || videos.length === 0) return null;
+  if (videos.length === 0) return null;
 
   const next = () => {
     setDirection(1);
     setIndex((i) => (i + 1) % videos.length);
   };
-  
+
   const prev = () => {
     setDirection(-1);
     setIndex((i) => (i - 1 + videos.length) % videos.length);
   };
 
   const togglePlay = (e?: React.MouseEvent) => {
-    e?.stopPropagation(); 
+    e?.stopPropagation();
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
@@ -95,10 +101,13 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
           viewport={{ once: true, amount: 0.2 }}
           className="relative group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-700 aspect-video shadow-2xl"
         >
-          <AnimatePresence custom={direction}>
+          <AnimatePresence custom={direction} initial={false}>
             <motion.video
               key={videos[index]}
-              ref={videoRef}
+              ref={(el) => {
+                if (el) videoRef.current = el;
+              }}
+              muted={isMuted}
               custom={direction}
               variants={slideVariants}
               initial="enter"
@@ -107,7 +116,7 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
               onClick={() => togglePlay()}
               onTimeUpdate={handleTimeUpdate}
               onEnded={() => setIsPlaying(false)}
-              className="w-full h-full object-cover cursor-pointer"
+              className="absolute inset-0 w-full h-full object-contain cursor-pointer"
             >
               <source src={videos[index]} type="video/mp4" />
             </motion.video>
@@ -122,7 +131,7 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
           )}
 
           <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex flex-col gap-3">
-            
+
             <input
               type="range"
               min="0"
@@ -131,7 +140,7 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
               onChange={handleSeek}
               className="w-full h-1.5 bg-zinc-600 rounded-lg appearance-none cursor-pointer accent-indigo-500"
             />
-   
+
             <div className="flex items-center justify-between mt-1">
               <div className="flex items-center gap-5">
                 <button onClick={togglePlay} className="text-white hover:text-indigo-400 transition-colors">
@@ -143,20 +152,23 @@ export default function ProjectVideoGallery({ videos }: { videos: string[] }) {
               </div>
             </div>
           </div>
-
-          <button 
-            onClick={(e) => { e.stopPropagation(); prev(); }} 
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-0 group-hover:opacity-100 backdrop-blur-sm border border-white/10"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <button 
-            onClick={(e) => { e.stopPropagation(); next(); }} 
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-0 group-hover:opacity-100 backdrop-blur-sm border border-white/10"
-          >
-            <ChevronRight size={20} />
-          </button>
-
+          {
+            videos.length > 1 &&
+            <>
+              <button
+                onClick={(e) => { e.stopPropagation(); prev(); }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-0 group-hover:opacity-100 backdrop-blur-sm border border-white/10"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); next(); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-20 opacity-0 group-hover:opacity-100 backdrop-blur-sm border border-white/10"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </>
+          }
         </motion.div>
       </Container>
     </section>

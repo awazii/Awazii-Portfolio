@@ -14,15 +14,15 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  if (!project.gallery || project.gallery.length === 0) return null;
+  if (project.gallery.images.length === 0) return null;
 
   const next = () => {
     setDirection(1);
-    setIndex((i) => (i + 1) % project.gallery!.length);
+    setIndex((i) => (i + 1) % project.gallery.images!.length);
   };
   const prev = () => {
     setDirection(-1);
-    setIndex((i) => (i - 1 + project.gallery!.length) % project.gallery!.length);
+    setIndex((i) => (i - 1 + project.gallery.images!.length) % project.gallery.images!.length);
   };
 
   return (
@@ -40,43 +40,47 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
             <Maximize2 size={18} className="text-indigo-500" /> Interface Gallery
           </h2>
           <span className="text-zinc-500 text-xs font-bold tracking-widest">
-            {index + 1} / {project.gallery.length}
+            {index + 1} / {project.gallery.images.length}
           </span>
         </motion.div>
-        
+
         <motion.div
           variants={cardContentVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="relative group bg-zinc-800 rounded-3xl overflow-hidden border border-zinc-700 aspect-video"
+          className="relative group bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-700 aspect-video"
         >
-          <AnimatePresence custom={direction}>
+          <AnimatePresence custom={direction} initial={false}>
             <motion.img
               key={index}
-              src={project.gallery[index]}
+              src={project.gallery.images[index]}
               alt={`Screenshot ${index + 1}`}
               custom={direction}
               variants={slideVariants}
               initial="enter"
               animate="center"
               exit="exit"
-              className="w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-contain"
             />
           </AnimatePresence>
 
-          <button
-            onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors"
-          >
-            <ChevronLeft size={20} />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors"
-          >
-            <ChevronRight size={20} />
-          </button>
+          {
+            <>
+              <button
+                onClick={prev}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-10"
+              >
+                <ChevronLeft size={20} />
+              </button>
+              <button
+                onClick={next}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 hover:bg-indigo-600 text-white rounded-full transition-colors z-10"
+              >
+                <ChevronRight size={20} />
+              </button>
+            </>
+          }
         </motion.div>
       </Container>
     </section>
