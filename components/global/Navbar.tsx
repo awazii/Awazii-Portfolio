@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion"; // Added Framer Motion
-import { navVariants } from "@/lib/animations"; // Added your custom variants
+import { motion, AnimatePresence } from "framer-motion"; 
+import { navVariants } from "@/lib/animations"; 
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -19,7 +19,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Intersection Observer for active sections
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,11 +37,9 @@ export default function Navbar() {
     return () => observer.disconnect();
   }, []);
 
-  // Smooth Scroll Handler
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
 
-    // Close mobile menu when a link is clicked
     setIsMobileMenuOpen(false);
 
     if (href === "#" || href === "/" || href === "#home") {
@@ -75,8 +72,6 @@ export default function Navbar() {
       )}
     >
       <div className="flex items-center justify-between px-6 py-4 transition-all duration-500 ease-in-out">
-
-        {/* Logo */}
         <Link
           href="#home"
           onClick={(e) => handleSmoothScroll(e, "#")}
@@ -84,10 +79,7 @@ export default function Navbar() {
         >
           AW<span className="text-indigo-500 mx-[1px]">Λ</span>ZII
         </Link>
-
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6 text-xs font-bold tracking-widest uppercase">
-          {/* Main Links */}
           <div className="flex items-center gap-6">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace("#", "");
@@ -109,12 +101,9 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Visual Divider */}
           <div className="w-px h-4 bg-zinc-700"></div>
-
-          {/* Resume Button */}
           <a
-            href="/resume.pdf"
+            href="https://drive.google.com/uc?export=download&id=1aZjn8JNt9AzBieks_B6vwCAiHB0wTCoe"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-full border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors duration-300"
@@ -122,8 +111,6 @@ export default function Navbar() {
             Resume
           </a>
         </div>
-
-        {/* Mobile Menu Toggle Button */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -133,8 +120,6 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-
-      {/* Mobile Menu Dropdown with AnimatePresence */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div

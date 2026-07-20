@@ -1,5 +1,4 @@
 "use client";
-// components/home/Footer.tsx
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import { siteConfig } from "@/data/siteConfig";
@@ -13,7 +12,6 @@ export default function Footer() {
     <footer className="w-full bg-[#0c0c0e] py-8 border-t border-white/5">
       <Container className="py-0 md:py-0 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-bold tracking-widest uppercase text-slate-500">
         
-        {/* Left side */}
         <motion.p
           variants={cardContentVariants}
           initial="hidden"
@@ -24,7 +22,6 @@ export default function Footer() {
           &copy; {currentYear} {siteConfig.name}. All rights reserved.
         </motion.p>
 
-        {/* Right side links */}
         <motion.div
           variants={cardContentVariants}
           initial="hidden"
