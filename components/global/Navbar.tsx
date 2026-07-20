@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion"; 
-import { navVariants } from "@/lib/animations"; 
+import { motion, AnimatePresence } from "framer-motion";
+import { navVariants } from "@/lib/animations";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -103,7 +103,7 @@ export default function Navbar() {
 
           <div className="w-px h-4 bg-zinc-700"></div>
           <a
-            href="https://drive.google.com/uc?export=download&id=1aZjn8JNt9AzBieks_B6vwCAiHB0wTCoe"
+            href="https://drive.google.com/uc?export=download&id=10V0ZXE42czZ2tV63hJ6lKazsCAAqVLaj"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-full border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors duration-300"
@@ -149,7 +149,7 @@ export default function Navbar() {
             <div className="w-full h-px bg-zinc-800"></div>
 
             <a
-              href="https://drive.google.com/uc?export=download&id=1aZjn8JNt9AzBieks_B6vwCAiHB0wTCoe"
+              href="https://drive.google.com/uc?export=download&id=10V0ZXE42czZ2tV63hJ6lKazsCAAqVLaj"
               target="_blank"
               rel="noopener noreferrer"
               className="your-tailwind-classes-here"
