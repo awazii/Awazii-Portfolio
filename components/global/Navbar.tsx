@@ -17,7 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Intersection Observer for active sections
   useEffect(() => {
@@ -41,15 +41,15 @@ export default function Navbar() {
   // Smooth Scroll Handler
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    
+
     // Close mobile menu when a link is clicked
     setIsMobileMenuOpen(false);
 
     if (href === "#" || href === "/" || href === "#home") {
-      window.scrollTo({ 
-        top: 0, 
-        left: 0, 
-        behavior: "smooth" 
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
       });
       setActiveSection("home");
       return;
@@ -75,7 +75,7 @@ export default function Navbar() {
       )}
     >
       <div className="flex items-center justify-between px-6 py-4 transition-all duration-500 ease-in-out">
-        
+
         {/* Logo */}
         <Link
           href="#home"
@@ -84,7 +84,7 @@ export default function Navbar() {
         >
           AW<span className="text-indigo-500 mx-[1px]">Λ</span>ZII
         </Link>
-        
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-6 text-xs font-bold tracking-widest uppercase">
           {/* Main Links */}
@@ -113,9 +113,9 @@ export default function Navbar() {
           <div className="w-px h-4 bg-zinc-700"></div>
 
           {/* Resume Button */}
-          <a 
-            href="/resume.pdf" 
-            target="_blank" 
+          <a
+            href="/resume.pdf"
+            target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-full border border-zinc-700 text-zinc-300 hover:bg-zinc-800 hover:text-white transition-colors duration-300"
           >
@@ -125,7 +125,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle Button */}
         <div className="md:hidden flex items-center">
-          <button 
+          <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="text-zinc-400 hover:text-white transition-colors cursor-pointer"
           >
@@ -137,7 +137,7 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown with AnimatePresence */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
@@ -160,14 +160,14 @@ export default function Navbar() {
                 </a>
               );
             })}
-            
+
             <div className="w-full h-px bg-zinc-800"></div>
-            
-            <a 
-              href="/resume.pdf" 
-              target="_blank" 
+
+            <a
+              href="https://drive.google.com/uc?export=download&id=1aZjn8JNt9AzBieks_B6vwCAiHB0wTCoe"
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-center py-3 rounded-xl bg-indigo-500 text-white text-sm font-bold uppercase tracking-widest hover:bg-indigo-600 transition-colors"
+              className="your-tailwind-classes-here"
             >
               Download Resume
             </a>
