@@ -11,7 +11,7 @@ export const siteConfig: SiteConfig = {
     name: "Awais Tariq",
     email: "awaistariq975@gmail.com",
     github: "https://github.com/awazii",
-    linkedin: "https://www.linkedin.com/in/awais-tariq-75636a253/",
+    linkedin: "https://www.linkedin.com/in/awaistariq-frontend/",
     education: "B.S. Software Engineering, Virtual University of Pakistan",
   currentlyLearning: [
   "Backend Development",
